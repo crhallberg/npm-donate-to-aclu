@@ -2,8 +2,6 @@
 
 Takes an object to submit an automated ACLU donation form.
 
-> https://aclu-api.herokuapp.com/
-
 ### Security
  - no database at all
  - open source
