@@ -1,26 +1,22 @@
-# aclu-donation-api
+# donate-to-aclu [![Travis status](https://img.shields.io/travis/USER/REPO.svg)](https://travis-ci.org/crhallberg/npm-donate-to-aclu)
 
-Takes POST data to submit an automated ACLU donation form.
+Takes an object to submit an automated ACLU donation form.
 
-> https://aclu-api.herokuapp.com/`
+> https://aclu-api.herokuapp.com/
 
 ### Security
- - https connection
- - POST data
  - no database at all
  - open source
- - no sensitive information in the logs
-   - amount and first name in the private logs
-   - `ready to donate $5 for Chris`
+ - as many validation checks as I can make before submitting to ACLU
 
 ### Required Fields
 
 | Field     | Format  | Example |
 |-----------|---------|-|
-| firstname | string  | John |
+| firstname | string  | Casey |
 | lastname  | string  | Doe |
 | address   | string  | 123 Rainbow Lane |
-| zipcode   | string  | 12345 (can be used to determine city and state) |
+| zipcode   | string  | 12345 |
 | cc_number | str/num | no spaces, just numbers |
 | cc_exp    | xx/xx   | Month/Year |
 | cc_code   | xxx     | number or string |
@@ -30,6 +26,7 @@ Takes POST data to submit an automated ACLU donation form.
 
 | Field | Format  | Default |
 |-------|---------|---------|
+| fullname | string | Casey Doe (can be used in place of firstname and lastname |
 | email | string | crhallberg+acluapi@gmail.com  |
 | city      | string  | Chicago (determined by zipcode if absent) |
 | state     | string  | Illinois or IL (determined by zipcode if absent)  |
@@ -40,35 +37,15 @@ Takes POST data to submit an automated ACLU donation form.
 ### Example
 
 ```javascript
-var FormData = require('form-data');
+const aclu = require('donate-to-aclu');
 
 const fields = { /* ... */ };
 
-var form = new FormData();
-for (let i in fields) {
-  form.append(i, fields[i]);
+if (aclu.validate(fields)) {
+  aclu.submit(fields);
 }
-
-form.submit('https://aclu-api.herokuapp.com/', function(err, res) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(res.statusCode);
-    if (res.statusCode === 200) {
-      console.log(res.statusCode);
-      console.log("SUCCESS!");
-    } else {
-      // Print out error
-      var body = '';
-      res.on('data', chunk => { body += chunk; });
-      res.on('end', () => { console.log(body); });
-    }
-  }
-});
 ```
 
 ### Powered By
- - [Heroku](https://www.heroku.com/)
- - [node.js](https://nodejs.org/en/)
  - [Zombie.js](https://github.com/assaf/zombie)
  - Inspired by [ACLU Dash Button Hack](https://github.com/nathanpryor/donation_button)
