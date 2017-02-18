@@ -1,6 +1,6 @@
 {
   "name": "donate-to-aclu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Takes object to programmatically submit ACLU donations.",
   "main": "index.js",
   "scripts": {

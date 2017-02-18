@@ -10,7 +10,7 @@ Takes an object to submit an automated ACLU donation form.
 ### Required Fields
 
 | Field     | Format  | Example |
-|-----------|---------|-|
+|-----------|---------|---|
 | firstname | string  | Casey |
 | lastname  | string  | Doe |
 | address   | string  | 123 Rainbow Lane |
