@@ -1,4 +1,4 @@
-# donate-to-aclu [![Travis status](https://img.shields.io/travis/USER/REPO.svg)](https://travis-ci.org/crhallberg/npm-donate-to-aclu)
+# donate-to-aclu [![Travis status](https://img.shields.io/travis/crhallberg/npm-donate-to-aclu.svg)](https://travis-ci.org/crhallberg/npm-donate-to-aclu)
 
 Takes an object to submit an automated ACLU donation form.
 
