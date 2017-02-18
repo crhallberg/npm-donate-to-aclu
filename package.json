@@ -1,0 +1,25 @@
+{
+  "name": "donate-to-aclu",
+  "version": "1.0.0",
+  "description": "Takes object to programmatically submit ACLU donations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "npm",
+    "aclu"
+  ],
+  "author": "Chris Hallberg",
+  "license": "MIT",
+  "dependencies": {
+    "creditcards": "^2.1.2",
+    "validator": "^6.2.1",
+    "zips": "^1.1.2",
+    "zombie": "^5.0.5"
+  },
+  "devDependencies": {
+    "immutable": "^3.8.1",
+    "mocha": "^3.2.0"
+  }
+}
