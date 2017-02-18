@@ -24,10 +24,10 @@ Takes an object to submit an automated ACLU donation form.
 
 | Field | Format  | Default |
 |-------|---------|---------|
-| fullname | string | Casey Doe (can be used in place of firstname and lastname |
+| fullname | string | Casey Doe (can be used in place of firstname and lastname) |
 | email | string | crhallberg+acluapi@gmail.com  |
-| city      | string  | Chicago (determined by zipcode if absent) |
-| state     | string  | Illinois or IL (determined by zipcode if absent)  |
+| city      | string  | (determined by zipcode if absent) |
+| state     | string  | (determined by zipcode if absent)  |
 | country_code | str/num | 840 (US) - [ISO_3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_numeric#Officially_assigned_code_elements)                   |
 | get_updates | boolean | false |
 | share_info | boolean | false |
