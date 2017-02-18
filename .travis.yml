@@ -3,4 +3,4 @@ node_js:
  - "node"
  - "6"
 before_script:
-  - npm install --only=dev
+ - npm install -g mocha
