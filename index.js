@@ -142,9 +142,9 @@ function automate(formdata) {
         browser.uncheck('submitted[credit_card_information][fight_for_freedom][1]');
       }
       if (formdata.share_info) {
-        browser.check('submitted[credit_card_information][fight_for_freedom][1]');
+        browser.check('submitted[credit_card_information][profile_may_we_share_your_info][1]');
       } else {
-        browser.uncheck('submitted[credit_card_information][fight_for_freedom][1]');
+        browser.uncheck('submitted[credit_card_information][profile_may_we_share_your_info][1]');
       }
       browser.pressButton('JOIN THE ACLU', function() {
         let errors = browser.queryAll('.messages.error .form-message-link');
