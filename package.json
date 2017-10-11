@@ -4,7 +4,9 @@
   "description": "Takes object to programmatically submit ACLU donations.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "npm",
@@ -16,11 +18,13 @@
     "creditcards": "^2.1.2",
     "validator": "^6.2.1",
     "zips": "^1.1.2",
-    "zombie": "^5.0.5"
+    "zombie": "^5.0.5",
+    "snyk": "^1.42.5"
   },
   "devDependencies": {
     "immutable": "^3.8.1",
     "jsdom": "^9.11.0",
     "mocha": "^3.2.0"
-  }
+  },
+  "snyk": true
 }
