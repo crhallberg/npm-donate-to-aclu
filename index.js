@@ -112,7 +112,7 @@ function validate(formdata) {
 function automate(formdata) {
   const Browser = require('zombie');
   const browser = new Browser();
-  browser.visit('https://action.aclu.org/donate-aclu', function () {
+  browser.visit('https://action.aclu.org/give/become-freedom-fighter-join-aclu-7', function () {
     try {
       browser.fill('submitted[donation][aclu_recurring]', 0);
       browser.fill('submitted[donation][amount]', "other");
