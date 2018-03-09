@@ -1,12 +1,12 @@
 {
-  "firstname": "Casey",
-  "lastname": "Doe",
-  "address": "123 Real Street",
-  "city": "New York",
-  "state": "NY",
-  "zipcode": 10004,
-  "cc_number": "4242424242424242",
-  "cc_exp": "12/21",
-  "cc_code": "123",
-  "amount": 5
+    "firstname": "Casey",
+    "lastname": "Doe",
+    "address": "123 Real Street",
+    "city": "New York",
+    "state": "NY",
+    "zipcode": 10004,
+    "cc_number": "4242424242424242",
+    "cc_exp": "12/21",
+    "cc_code": "123",
+    "amount": 5
 }
