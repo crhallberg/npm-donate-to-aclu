@@ -129,8 +129,8 @@ function automate(formdata) {
             }
 
             browser.fill("submitted[payment_information][payment_fields][credit][card_number]", formdata.cc_number);
-            browser.select("submitted[payment_information][payment_fields][credit][card_expiration_month]", formdata.exp_month + "");
-            browser.select("submitted[payment_information][payment_fields][credit][card_expiration_year]", formdata.exp_year + "");
+            browser.select("submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_month]", formdata.exp_month + "");
+            browser.select("submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_year]", formdata.exp_year + "");
             browser.fill("submitted[payment_information][payment_fields][credit][card_cvv]", formdata.cc_code);
 
             if (formdata.get_updates) {
