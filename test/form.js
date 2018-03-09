@@ -28,7 +28,7 @@ describe('Browser tests with JSDOM', function() {
     let document, inputs;
     before(function(done) {
       jsdom.env({
-        url: 'https://action.aclu.org/donate-aclu',
+        url: 'https://action.aclu.org/give/become-freedom-fighter-join-aclu-7',
         done: function (err, window) {
           document = window.document;
           inputs = document.querySelector('form.webform-client-form').querySelectorAll('[name]');
