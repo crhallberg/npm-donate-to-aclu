@@ -111,13 +111,13 @@ function automate(formdata) {
     const browser = new Browser();
     browser.visit("https://action.aclu.org/give/become-freedom-fighter-join-aclu-7", function() {
         try {
-            browser.fill("submitted[donation][aclu_recurring]", 0);
+            browser.fill("submitted[donation][recurs_monthly]", 0);
             browser.fill("submitted[donation][amount]", "other");
             browser.fill("submitted[donation][other_amount]", formdata.amount);
 
             browser.fill("submitted[donor_information][first_name]", formdata.firstname);
             browser.fill("submitted[donor_information][last_name]", formdata.lastname);
-            browser.fill("submitted[donor_information][email]", formdata.email);
+            browser.fill("submitted[donor_information][mail]", formdata.email);
 
             browser.fill("submitted[billing_information][address]", formdata.address);
             browser.fill("submitted[billing_information][address_line_2]", formdata.address2 ? formdata.address2 : "");
@@ -128,22 +128,22 @@ function automate(formdata) {
                 browser.select("submitted[billing_information][country]", formdata.country_code + "");
             }
 
-            browser.fill("submitted[credit_card_information][card_number]", formdata.cc_number);
-            browser.select("submitted[credit_card_information][expiration_date][card_expiration_month]", formdata.exp_month + "");
-            browser.select("submitted[credit_card_information][expiration_date][card_expiration_year]", formdata.exp_year + "");
-            browser.fill("submitted[credit_card_information][card_cvv]", formdata.cc_code);
+            browser.fill("submitted[payment_information][payment_fields][credit][card_number]", formdata.cc_number);
+            browser.select("submitted[payment_information][payment_fields][credit][card_expiration_month]", formdata.exp_month + "");
+            browser.select("submitted[payment_information][payment_fields][credit][card_expiration_year]", formdata.exp_year + "");
+            browser.fill("submitted[payment_information][payment_fields][credit][card_cvv]", formdata.cc_code);
 
             if (formdata.get_updates) {
-                browser.check("submitted[credit_card_information][fight_for_freedom][1]");
+                browser.check("submitted[payment_information][email_opt_in][1]");
             } else {
-                browser.uncheck("submitted[credit_card_information][fight_for_freedom][1]");
+                browser.uncheck("submitted[payment_information][email_opt_in][1]");
             }
             if (formdata.share_info) {
-                browser.check("submitted[credit_card_information][profile_may_we_share_your_info][1]");
+                browser.check("submitted[payment_information][profile_may_we_share_your_info][1]");
             } else {
-                browser.uncheck("submitted[credit_card_information][profile_may_we_share_your_info][1]");
+                browser.uncheck("submitted[payment_information][profile_may_we_share_your_info][1]");
             }
-            browser.pressButton("JOIN THE ACLU", function() {
+            browser.pressButton("Join The ACLU", function() {
                 let errors = browser.queryAll(".messages.error .form-message-link");
                 if (errors.length === 0) {
                     succeed();

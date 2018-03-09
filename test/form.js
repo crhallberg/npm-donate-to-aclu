@@ -4,24 +4,24 @@ const jsdom = require("jsdom");
 describe("Browser tests with JSDOM", function() {
     describe("Check form for used inputs", function() {
         const NAMES = [
-            "submitted[donation][aclu_recurring]",
+            "submitted[donation][recurs_monthly]",
             "submitted[donation][amount]",
             "submitted[donation][other_amount]",
             "submitted[donor_information][first_name]",
             "submitted[donor_information][last_name]",
-            "submitted[donor_information][email]",
+            "submitted[donor_information][mail]",
             "submitted[billing_information][address]",
             "submitted[billing_information][address_line_2]",
             "submitted[billing_information][city]",
             "submitted[billing_information][state]",
             "submitted[billing_information][zip]",
             "submitted[billing_information][country]",
-            "submitted[credit_card_information][card_number]",
-            "submitted[credit_card_information][expiration_date][card_expiration_month]",
-            "submitted[credit_card_information][expiration_date][card_expiration_year]",
-            "submitted[credit_card_information][card_cvv]",
-            "submitted[credit_card_information][fight_for_freedom][1]",
-            "submitted[credit_card_information][profile_may_we_share_your_info][1]",
+            "submitted[payment_information][payment_fields][credit][card_number]",
+            "submitted[payment_information][payment_fields][credit][card_expiration_month]",
+            "submitted[payment_information][payment_fields][credit][card_expiration_year]",
+            "submitted[payment_information][payment_fields][credit][card_cvv]",
+            "submitted[payment_information][email_opt_in][1]",
+            "submitted[payment_information][profile_may_we_share_your_info][1]",
             // 'JOIN THE ACLU'
         ];
 
@@ -50,10 +50,10 @@ describe("Browser tests with JSDOM", function() {
             });
         }
 
-        it("button with name JOIN THE ACLU", function() {
+        it("button with name Join The ACLU", function() {
             const button = document.getElementById("edit-submit");
             assert.ok(button, "Submit button missing");
-            assert.equal(button.value, "JOIN THE ACLU");
+            assert.equal(button.value, "Join The ACLU");
         });
     });
 });
