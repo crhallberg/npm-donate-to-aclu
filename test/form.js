@@ -1,7 +1,7 @@
 const assert = require("assert");
 const jsdom = require("jsdom");
 
-const { FORM_URL, FORM_FIELDS } = require("./constants.js");
+const { FORM_URL, FORM_FIELDS } = require("../constants.js");
 
 describe("Browser tests with JSDOM", function() {
     describe("Check form for used inputs", function() {
