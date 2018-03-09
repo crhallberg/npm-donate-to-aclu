@@ -1,6 +1,7 @@
 const { card, cvc, expiration } = require("creditcards");
 const validator = require("validator");
 
+const { FORM_URL, FORM_FIELDS } = require("./constants.js");
 const stateIndexes = require("./data/state-indexes");
 
 function validate(formdata) {
@@ -98,7 +99,7 @@ function validate(formdata) {
             email: "crhallberg+acluapi@gmail.com",
             country_code: "840", // US
             get_updates: false,
-            share_info: false
+            share_info: false,
         };
         for (let field in defaults) {
             formdata[field] = formdata[field] || defaults[field];
@@ -109,39 +110,39 @@ function validate(formdata) {
 function automate(formdata) {
     const Browser = require("zombie");
     const browser = new Browser();
-    browser.visit("https://action.aclu.org/give/become-freedom-fighter-join-aclu-7", function() {
+    browser.visit(FORM_URL, function() {
         try {
-            browser.fill("submitted[donation][recurs_monthly]", 0);
-            browser.fill("submitted[donation][amount]", "other");
-            browser.fill("submitted[donation][other_amount]", formdata.amount);
+            browser.fill(FORM_FIELDS.monthly_toggle, 1);
+            browser.fill(FORM_FIELDS.other_toggle, "other");
+            browser.fill(FORM_FIELDS.once_amount, formdata.amount);
 
-            browser.fill("submitted[donor_information][first_name]", formdata.firstname);
-            browser.fill("submitted[donor_information][last_name]", formdata.lastname);
-            browser.fill("submitted[donor_information][mail]", formdata.email);
+            browser.fill(FORM_FIELDS.first_name, formdata.firstname);
+            browser.fill(FORM_FIELDS.last_name, formdata.lastname);
+            browser.fill(FORM_FIELDS.email, formdata.email);
 
-            browser.fill("submitted[billing_information][address]", formdata.address);
-            browser.fill("submitted[billing_information][address_line_2]", formdata.address2 ? formdata.address2 : "");
-            browser.fill("submitted[billing_information][city]", formdata.city);
-            browser.select("submitted[billing_information][state]", stateIndexes[formdata.state] + "");
-            browser.fill("submitted[billing_information][zip]", formdata.zipcode);
+            browser.fill(FORM_FIELDS.address, formdata.address);
+            browser.fill(FORM_FIELDS.address_2, formdata.address2 ? formdata.address2 : "");
+            browser.fill(FORM_FIELDS.city, formdata.city);
+            browser.select(FORM_FIELDS.state, stateIndexes[formdata.state] + "");
+            browser.fill(FORM_FIELDS.zipcode, formdata.zipcode);
             if (formdata.country_code && formdata.country_code != 840) {
-                browser.select("submitted[billing_information][country]", formdata.country_code + "");
+                browser.select(FORM_FIELDS.country, formdata.country_code + "");
             }
 
-            browser.fill("submitted[payment_information][payment_fields][credit][card_number]", formdata.cc_number);
-            browser.select("submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_month]", formdata.exp_month + "");
-            browser.select("submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_year]", formdata.exp_year + "");
-            browser.fill("submitted[payment_information][payment_fields][credit][card_cvv]", formdata.cc_code);
+            browser.fill(FORM_FIELDS.card_number, formdata.cc_number);
+            browser.select(FORM_FIELDS.card_month, formdata.exp_month + "");
+            browser.select(FORM_FIELDS.card_year, formdata.exp_year + "");
+            browser.fill(FORM_FIELDS.card_cvv, formdata.cc_code);
 
             if (formdata.get_updates) {
-                browser.check("submitted[payment_information][email_opt_in][1]");
+                browser.check(FORM_FIELDS.email_opt_in);
             } else {
-                browser.uncheck("submitted[payment_information][email_opt_in][1]");
+                browser.uncheck(FORM_FIELDS.email_opt_in);
             }
             if (formdata.share_info) {
-                browser.check("submitted[payment_information][profile_may_we_share_your_info][1]");
+                browser.check(FORM_FIELDS.share_your_info);
             } else {
-                browser.uncheck("submitted[payment_information][profile_may_we_share_your_info][1]");
+                browser.uncheck(FORM_FIELDS.share_your_info);
             }
             browser.pressButton("Join The ACLU", function() {
                 let errors = browser.queryAll(".messages.error .form-message-link");
@@ -171,5 +172,5 @@ function submit(formdata) {
 
 module.exports = {
     validate,
-    submit
+    submit,
 };
