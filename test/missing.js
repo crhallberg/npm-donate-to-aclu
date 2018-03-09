@@ -3,7 +3,7 @@ const { valid, invalid, Immutable, VALID } = require("./base");
 // Add default fields
 const complete = VALID.merge({
     email: "crhallberg+acluapi@gmail.com",
-    country_code: 840, // US
+    country_code: 840 // US
     // 'get_updates': false, // falsey
     // 'share_info': false   // falsey
 });

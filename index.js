@@ -98,7 +98,7 @@ function validate(formdata) {
             email: "crhallberg+acluapi@gmail.com",
             country_code: "840", // US
             get_updates: false,
-            share_info: false,
+            share_info: false
         };
         for (let field in defaults) {
             formdata[field] = formdata[field] || defaults[field];
@@ -171,5 +171,5 @@ function submit(formdata) {
 
 module.exports = {
     validate,
-    submit,
+    submit
 };

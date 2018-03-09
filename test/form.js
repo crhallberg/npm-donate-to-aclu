@@ -21,7 +21,7 @@ describe("Browser tests with JSDOM", function() {
             "submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_year]",
             "submitted[payment_information][payment_fields][credit][card_cvv]",
             "submitted[payment_information][email_opt_in][1]",
-            "submitted[payment_information][profile_may_we_share_your_info][1]",
+            "submitted[payment_information][profile_may_we_share_your_info][1]"
             // 'JOIN THE ACLU'
         ];
 
@@ -33,7 +33,7 @@ describe("Browser tests with JSDOM", function() {
                     document = window.document;
                     inputs = document.querySelector("form.webform-client-form").querySelectorAll("[name]");
                     done();
-                },
+                }
             });
         });
 

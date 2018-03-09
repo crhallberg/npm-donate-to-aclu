@@ -26,7 +26,7 @@ describe("Basic tests", function() {
         "fullname w/o first or last name",
         VALID.set("fullname", "Casey Doe")
             .set("firstname", "")
-            .set("lastname", ""),
+            .set("lastname", "")
     );
     invalid("too short fullname", VALID.set("fullname", "Casey").set("firstname", ""));
     invalid("too long fullname", VALID.set("fullname", "Casey Doe Jr.").set("firstname", ""));
