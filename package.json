@@ -8,10 +8,7 @@
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
-  "keywords": [
-    "npm",
-    "aclu"
-  ],
+  "keywords": ["npm", "aclu"],
   "author": "Chris Hallberg",
   "license": "MIT",
   "dependencies": {
