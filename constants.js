@@ -16,6 +16,5 @@ module.exports.FORM_FIELDS = {
     card_month: "submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_month]",
     card_year: "submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_year]",
     card_cvv: "submitted[payment_information][payment_fields][credit][card_cvv]",
-    email_opt_in: "submitted[payment_information][email_opt_in][1]",
-    share_info: "submitted[payment_information][profile_may_we_share_your_info][1]",
+    email_opt_in: "submitted[donation][email_opt_in][1]",
 };

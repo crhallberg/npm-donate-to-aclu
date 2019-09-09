@@ -139,12 +139,7 @@ function automate(formdata) {
             } else {
                 browser.uncheck(FORM_FIELDS.email_opt_in);
             }
-            if (formdata.share_info) {
-                browser.check(FORM_FIELDS.share_your_info);
-            } else {
-                browser.uncheck(FORM_FIELDS.share_your_info);
-            }
-            browser.pressButton("Join The ACLU", function() {
+            browser.pressButton("Donate With Credit Card", function() {
                 let errors = browser.queryAll(".messages.error .form-message-link");
                 if (errors.length === 0) {
                     succeed();

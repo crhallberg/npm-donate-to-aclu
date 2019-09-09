@@ -33,7 +33,7 @@ describe("Browser tests with JSDOM", function() {
         it("button with name Join The ACLU", function() {
             const button = document.getElementById("edit-submit");
             assert.ok(button, "Submit button missing");
-            assert.equal(button.value, "Join The ACLU");
+            assert.equal(button.value, "Donate With Credit Card");
         });
     });
 });
