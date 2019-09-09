@@ -16,9 +16,9 @@
   "license": "MIT",
   "dependencies": {
     "creditcards": "^2.1.2",
-    "validator": "^6.2.1",
+    "validator": "^9.4.1",
     "zips": "^1.1.2",
-    "zombie": "^5.0.5",
+    "zombie": "^6.1.0",
     "snyk": "^1.42.5"
   },
   "devDependencies": {
