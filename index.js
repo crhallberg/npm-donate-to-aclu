@@ -139,7 +139,8 @@ function automate(formdata) {
             } else {
                 browser.uncheck(FORM_FIELDS.email_opt_in);
             }
-            browser.pressButton("Donate With Credit Card", function() {
+            browser.click(FORM_FIELDS.credit_card_option);
+            browser.pressButton("Submit", function() {
                 let errors = browser.queryAll(".messages.error .form-message-link");
                 if (errors.length === 0) {
                     succeed();

@@ -18,6 +18,13 @@ describe("Browser tests with JSDOM", function() {
         });
 
         for (let name in FORM_FIELDS) {
+            if (name === "credit_card_option") {
+                assert.ok(
+                    document.querySelector(FORM_FIELDS[name]),
+                    "Credit Card option label missing"
+                );
+                continue;
+            }
             it(FORM_FIELDS[name], function() {
                 let present = false;
                 for (let j = 0; j < inputs.length; j++) {
@@ -30,10 +37,10 @@ describe("Browser tests with JSDOM", function() {
             });
         }
 
-        it("button with name Join The ACLU", function() {
+        it("button by name exists", function() {
             const button = document.getElementById("edit-submit");
             assert.ok(button, "Submit button missing");
-            assert.equal(button.value, "Donate With Credit Card");
+            assert.equal(button.value, "Submit");
         });
     });
 });

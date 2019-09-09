@@ -17,4 +17,5 @@ module.exports.FORM_FIELDS = {
     card_year: "submitted[payment_information][payment_fields][credit][expiration_date][card_expiration_year]",
     card_cvv: "submitted[payment_information][payment_fields][credit][card_cvv]",
     email_opt_in: "submitted[donation][email_opt_in][1]",
+    credit_card_option: '[for="edit-submitted-extra-fields-payment-options-1"]',
 };
