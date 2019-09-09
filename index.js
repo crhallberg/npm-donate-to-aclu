@@ -26,7 +26,7 @@ function validate(formdata) {
         // Prepare date parts
         if (formdata.cc_exp) {
             if (formdata.cc_exp instanceof Date) {
-                formdata.cc_exp = formdata.cc_exp.getMonth() + "/" + formdata.cc_exp.getYear() % 100;
+                formdata.cc_exp = formdata.cc_exp.getMonth() + "/" + (formdata.cc_exp.getYear() % 100);
             }
             let expParts = String(formdata.cc_exp).split(/\D/);
             if (expParts.length != 2) {
